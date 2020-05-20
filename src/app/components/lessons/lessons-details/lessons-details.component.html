@@ -1,0 +1,21 @@
+<table class="table" >
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Lesson name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr
+    *ngFor="let lesson of lessons; let i = index"
+    (click)="onClick(i)"
+    [routerLink]="['/lessons', lesson.name]"
+    routerLinkActive="current">
+    <th scope="row">{{i+1}}</th>
+    <td>{{lesson.name}}</td>
+  </tr>
+  </tbody>
+</table>
+<hr>
+<app-lesson-add></app-lesson-add>
+

@@ -1,0 +1,5 @@
+<div *ngIf="lesson">
+  <h1>{{lesson.name}}</h1>
+  <p>{{lesson.content}}</p>
+  <button (click)="onLessonDeleted()" class="btn btn-danger">Delete</button>
+</div>
