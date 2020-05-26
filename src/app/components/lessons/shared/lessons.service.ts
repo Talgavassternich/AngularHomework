@@ -6,7 +6,7 @@ import data from '../../../../assets/data.json';
 
 @Injectable({providedIn: 'root'})
 export class LessonsService {
-  lessons: Lesson[] = data as any;
+  lessons: Lesson[] = data as Lesson[];
   current =  0;
 
   constructor(private router: Router) {}
@@ -39,6 +39,14 @@ export class LessonsService {
       }
     } else {
       this.lessons[index].content = lesson.content;
+    }
+  }
+  onEdit(lesson: Lesson) {
+    if (lesson.name === this.lessons[this.current].name) {
+      this.lessons[this.current].content = lesson.content;
+    } else {
+      this.lessons[this.current] = lesson;
+      this.redirect();
     }
   }
 

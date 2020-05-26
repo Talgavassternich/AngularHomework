@@ -1,5 +1,43 @@
-<div *ngIf="lesson">
-  <h1>{{lesson.name}}</h1>
-  <p>{{lesson.content}}</p>
-  <button (click)="onLessonDeleted()" class="btn btn-danger">Delete</button>
-</div>
+<form [formGroup]="editLessonForm" (ngSubmit)="onSubmit()">
+  <input #lessonTitle type="text" name="name" formControlName="name" autocomplete="off" maxLength="30" appInputResize>
+  <button mat-icon-button class="float-right" (click)="allowEdit()"><mat-icon aria-label="Example home icon">edit</mat-icon></button>
+  <div
+    *ngIf="!editLessonForm.get('name').valid && editLessonForm.get('name').touched"
+    class="error">
+              <span
+                *ngIf="editLessonForm.get('name').errors['minlength']">
+                Lesson name is too short!
+              </span>
+              <span
+                *ngIf="editLessonForm.get('name').errors['required']">
+                Lesson name is required!
+              </span>
+    </div>
+  <mat-form-field class="textArea">
+    <textarea matInput
+              #lessonText
+              cdkTextareaAutosize
+              enabled="true"
+              name="content"
+              formControlName="content"></textarea>
+  </mat-form-field>
+  <div
+    *ngIf="!editLessonForm.get('content').valid && editLessonForm.get('content').touched"
+    class="error">
+              <span
+                *ngIf="editLessonForm.get('content').errors['minlength']">
+                Lesson content is too short!
+              </span>
+              <span
+                *ngIf="editLessonForm.get('content').errors['required']">
+                Lesson content is required!
+              </span>
+  </div>
+  <div class="d-flex justify-content-between">
+    <button type="button" mat-raised-button color="warn" (click)="onDelete()">Delete</button>
+    <div *ngIf="editLessonForm.enabled">
+      <button type="button" mat-raised-button color="accent" (click)="onClear()">Clear</button>
+      <button type="submit" mat-raised-button color="primary">Submit</button>
+    </div>
+  </div>
+</form>

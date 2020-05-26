@@ -2,3 +2,16 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+input:disabled {
+  color:inherit;
+  cursor: default;
+  background-color: inherit;
+}
+input:disabled {
+  color:inherit;
+  cursor: default;
+  background-color: inherit;
+}
+tr:focus, button:focus {
+  outline: none;
+}

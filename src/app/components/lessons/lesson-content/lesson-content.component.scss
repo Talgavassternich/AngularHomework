@@ -1,0 +1,33 @@
+input {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  font-size: 22px;
+}
+input:focus {
+  padding: 10px;
+  border-bottom: 2px solid #3f51b5;
+  box-sizing: border-box;
+}
+button {
+  margin-right: 10px;
+}
+.textArea {
+  display: block;
+}
+textarea.mat-input-element {
+  box-sizing: content-box;
+  border: none;
+}
+.mat-input-element:disabled {
+  color: inherit;
+  cursor: default;
+  background-color: inherit;
+}
+.error {
+  color: red;
+}
+input.ng-invalid.ng-touched {
+  border-bottom: 2px solid red;
+}

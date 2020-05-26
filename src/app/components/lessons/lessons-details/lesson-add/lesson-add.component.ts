@@ -14,7 +14,7 @@ export class LessonAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.addLessonForm = new FormGroup({
-      'name': new FormControl(null, [Validators.required, Validators.minLength(2)]),
+      'name': new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
       'content': new FormControl(null, [Validators.required, Validators.minLength(10)])
     }, {validators: Validators.required});
   }
